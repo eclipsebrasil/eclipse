@@ -1,0 +1,44 @@
+const usuarios = [
+    {
+        nome:"amandinha",
+        videos:3
+    },
+    {
+        nome:"julia",
+        videos:2
+    },
+    {
+        nome:"maria",
+        videos:4
+    }
+];
+
+const feed = document.getElementById("feed");
+
+usuarios.forEach(usuario=>{
+
+    for(let i=1;i<=usuario.videos;i++){
+
+        const slide=document.createElement("div");
+        slide.className="slide";
+
+        slide.innerHTML=`
+
+        <video controls preload="metadata">
+
+            <source src="usuario/${usuario.nome}/${i}.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="info">
+            <h2>@${usuario.nome}</h2>
+            <p>Vídeo ${i}</p>
+        </div>
+
+        `;
+
+        feed.appendChild(slide);
+
+    }
+
+});
